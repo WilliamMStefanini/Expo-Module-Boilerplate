@@ -1,0 +1,1 @@
+rm -rf ../node_modules/module-app/node_modules

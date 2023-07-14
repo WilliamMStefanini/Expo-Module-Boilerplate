@@ -5,6 +5,7 @@ import {
   ParamListBase,
   NavigationContainer,
 } from "@react-navigation/native";
+import * as Clipboard from "expo-clipboard";
 import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
@@ -26,6 +27,10 @@ const ModuleHome = () => {
     navigate("moduleDetail");
   };
 
+  const copyToClipboard = async () => {
+    await Clipboard.setStringAsync("hello world");
+  };
+
   return (
     <View
       style={{
@@ -34,6 +39,12 @@ const ModuleHome = () => {
         height: "100%",
       }}
     >
+      <View style={{ paddingBottom: 10 }}>
+        <Button
+          title="Click here to copy to Clipboard"
+          onPress={copyToClipboard}
+        />
+      </View>
       <Button title="go to detail screen" onPress={handleNavigate} />
     </View>
   );
